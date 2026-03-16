@@ -57,7 +57,7 @@ export async function chatCompletion(
       throw new Error((err as { error?: string }).error ?? `请求失败 ${res.status}`);
     }
     const data = (await res.json()) as {
-      choices?: Array<{ message?: { content?: string } }; finish_reason?: string };
+      choices?: Array<{ message?: { content?: string }; finish_reason?: string }>;
       usage?: { prompt_tokens?: number; completion_tokens?: number };
     };
     const content = data.choices?.[0]?.message?.content ?? '';
